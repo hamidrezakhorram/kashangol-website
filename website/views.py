@@ -19,7 +19,7 @@ def contact_views(request):
     return render(request, 'contact.html')
 
 def cart_views(request):
-    return render(request, 'cart.html')
+    return render(request, 'shop/cart.html')
 def questions_views(request):
     return render(request, 'F&Q.html')
 def terms_views(request):
