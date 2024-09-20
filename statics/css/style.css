@@ -300,6 +300,7 @@
 .fruite .fruite-item {
     height: 100%;
     transition: 0.5s;
+    
 }
 .fruite .fruite-item:hover {
     box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
