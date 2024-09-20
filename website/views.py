@@ -6,8 +6,7 @@ def index_views(request):
     return render(request, 'index.html')
 
 
-def shop_views(request):
-    return render(request, 'shop/shop.html')
+
 
 def articles_views(request):
     return render(request, 'articles/article.html')
