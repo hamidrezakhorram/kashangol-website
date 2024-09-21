@@ -5,6 +5,7 @@ app_name = 'shop'
 
 urlpatterns = [
     path('', shop_views , name ='shop'),
+    path('/<int:pid>',singel_views , name ='single'),
     
 
     
