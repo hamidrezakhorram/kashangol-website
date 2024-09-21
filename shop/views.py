@@ -23,3 +23,14 @@ def singel_views(request , pid):
     products=get_object_or_404(Product , pk = pid , pub_status = 1)
     context={'products': products} 
     return render(request, 'shop/shop-detail.html' , context)
+
+def discount_views(request):
+    products= Product.objects.filter( pub_status = True)
+    products_max = products.objects.order_by('-price')
+    context={'products_max': products_max}
+    
+   
+
+    return render(request, 'shop/shop-discount.html'  , context)        
+
+    
