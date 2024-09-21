@@ -28,6 +28,7 @@ class Product(models.Model):
     category =models.ManyToManyField(Category)
     tags = models.ManyToManyField(Tags)
     counted_views = models.IntegerField(default=0)
+    rating = models.FloatField(default=0)
     
     
 
