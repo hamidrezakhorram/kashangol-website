@@ -34,3 +34,10 @@ def discount_views(request):
     return render(request, 'shop/shop-discount.html'  , context)        
 
     
+def search_views(request):
+    products =Product.objects.filter(pub_status=1)  # Filter only active posts
+    query = request.GET.get('s')  # Get search query
+    if query:
+        products = products.filter(name__icontains=query)  # Perform case-insensitive search
+    context = {'products': products}
+    return render(request, 'shop/shop.html', context)    
