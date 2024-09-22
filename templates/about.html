@@ -2,15 +2,28 @@
 {% load static %}
 {% block content%}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <h1>about us</h1>
-</head>
-<body>
-    {% endblock %}
-</body>
-</html>
+
+<div class="container py-5" style="margin-top: 100px;">
+    <div class="row g-5">
+        <div class="col-lg-6">
+            <h1 class="mb-4">درباره ما</h1>
+            <p>
+                فروشگاه اینترنتی کاشان گل ارائه دهنده بهترین عطر و گلاب و عرقیات کاشان با کیفیت عالی می‌باشد.
+                ما با ارائه محصولات طبیعی و ارگانیک، سلامتی و آرامش را به خانه شما می‌آوریم.
+                از انتخاب تا تحویل، ما در هر مرحله از خرید همراه شما هستیم تا بهترین تجربه خرید آنلاین را برایتان به ارمغان بیاوریم.
+            </p>
+            <p>
+                ماموریت ما ارائه محصولات محلی با کیفیت برتر و در دسترس قرار دادن آن‌ها برای مشتریان در سراسر کشور است.
+                ما به حفظ سنت‌ها و ارزش‌های کهن کاشان در تولید گلاب و عرقیات گیاهی افتخار می‌کنیم و همواره در تلاش هستیم تا بهترین‌ها را به مشتریان خود ارائه دهیم.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid" src="{% static 'img/about_us.jpg' %}" alt="About Us">
+        </div>
+    </div>
+</div>
+<!-- About Us End -->
+
+
+
+{% endblock %}
