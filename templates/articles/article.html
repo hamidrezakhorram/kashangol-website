@@ -2,15 +2,78 @@
 {% load static %}
 {% block content%}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <h1>این صفحه مقالات است</h1>
-</head>
-<body>
-    {% endblock %}
-</body>
-</html>
+<!-- Articles Start -->
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-12">
+            <h1 class="mb-4">مقالات</h1>
+        </div>
+
+        <!-- Article 1 -->
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="#" class="img-fluid rounded-start" alt="Article 1">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">عنوان مقاله اول</h5>
+                            <p class="card-text">
+                                این مقاله درباره فواید گلاب و عرقیات کاشان برای سلامتی صحبت می‌کند.
+                                اطلاعات بیشتر درباره روش‌های استفاده از محصولات طبیعی کاشان را می‌توانید در این مقاله بخوانید.
+                            </p>
+                            <a href="#" class="btn btn-primary">ادامه مطلب</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{% static 'img/best-product-2.jpg' %}" class="img-fluid rounded-start" alt="Article 2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">عنوان مقاله دوم</h5>
+                            <p class="card-text">
+                                این مقاله به معرفی فرآیند تولید گلاب و روش‌های سنتی و مدرن پرداخته است.
+                                برای آشنایی با مراحل تولید محصولات با کیفیت کاشان، مطالعه این مقاله را پیشنهاد می‌کنیم.
+                            </p>
+                            <a href="#" class="btn btn-primary">ادامه مطلب</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="#" class="img-fluid rounded-start" alt="Article 3">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">عنوان مقاله سوم</h5>
+                            <p class="card-text">
+                                در این مقاله به معرفی گیاهان دارویی کاشان و خواص آن‌ها برای درمان بیماری‌های مختلف پرداخته‌ایم.
+                                این مقاله مناسب علاقه‌مندان به داروهای گیاهی و طب سنتی است.
+                            </p>
+                            <a href="#" class="btn btn-primary">ادامه مطلب</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Articles End -->
+
+{% endblock %}
