@@ -1,5 +1,5 @@
 from django import template
-from shop.models import Product
+from shop.models import Product , Category
 
 register = template.Library()
 
@@ -14,11 +14,11 @@ def discount_tag(arg = 3):
        
 
 
-# @register.inclusion_tag('shop/shop-discount.html')
-# def postcategory():
-#     products = Product.objects.filter(pub_status=1)
-#     categories = Category.objects.all()
-#     catdict ={}
-#     for name in categories:
-#         catdict[name]=posts.filter(Category = name).count()
-#     return {'categories': catdict}   
+@register.inclusion_tag('shop/shop-categories.html')
+def shopcategory():
+    products = Product.objects.filter(pub_status=1)
+    categories = Category.objects.all()
+    catdict ={}
+    for name in categories:
+        catdict[name]=products.filter(category = name).count()
+    return {'categories': catdict}   
