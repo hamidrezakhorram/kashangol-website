@@ -54,7 +54,9 @@ def shop_views(request):
 
 def singel_views(request , pid):
     products=get_object_or_404(Product , pk = pid , pub_status = 1)
-    context={'products': products} 
+    products_category = products.category.all()
+    products_offer =Product.objects.filter(category__in =products_category).exclude(pk= products.pk)
+    context={'products': products , 'products_offer': products_offer} 
     return render(request, 'shop/shop-detail.html' , context)
 
 def discount_views(request):
