@@ -8,7 +8,7 @@
             <img src="{{product.image.url}}" class="img-fluid rounded" alt="">
         </div>
         <div>
-            <h6 class="mb-2">{{product.name}}</h6>
+            <h6 class="mb-2"><a href="{% url 'shop:single' pid=product.id %}">{{product.name}}</a></h6>
             <div class="d-flex mb-2">
                 <i class="fa fa-star text-secondary"></i>
                 <i class="fa fa-star text-secondary"></i>

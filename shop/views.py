@@ -5,11 +5,15 @@ from django.db.models import Max
 
 def shop_views(request):
     sort_options =request.GET.get('sort','')
-    price_range = request.GET.get('price_range',0)  
+    price_range = request.GET.get('price_range',0) 
+    category_id = request.GET.get('category', None) 
     products = Product.objects.filter( pub_status = True)
     category= Category.objects.all()
     for product in products:
        product.price = product.price - product.discount  
+    
+    if category_id:
+       products = products.filter(category=category_id)
 
     # sort by price , rating and discount
     if sort_options:
@@ -70,3 +74,10 @@ def search_views(request):
         products = products.filter(name__icontains=query)  # Perform case-insensitive search
     context = {'products': products}
     return render(request, 'shop/shop.html', context)    
+
+
+# def category_views(request , category_name) :
+#    products = Product.objects.filter( pub_status = True)
+#    products =products.filter(category__name = category_name)
+#    context = {'products' : products}
+#    return render(request , 'shop/shop-categories.html' , context )

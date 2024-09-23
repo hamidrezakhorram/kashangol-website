@@ -21,6 +21,7 @@ def shopcategory():
     catdict ={}
     for name in categories:
         catdict[name]=products.filter(category = name).count()
+
     return {'categories': catdict}   
 
 
