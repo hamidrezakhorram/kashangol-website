@@ -22,3 +22,19 @@ def shopcategory():
     for name in categories:
         catdict[name]=products.filter(category = name).count()
     return {'categories': catdict}   
+
+
+# @register.inclusion_tag('shop/shop-filter.html')
+# def shopfilter(request):
+#     sort_options =request.GET.get('sort','')
+#     products = Product.objects.filter(pub_status=1)
+#     if sort_options == 'popularity': 
+#         products = products.order_by('-rating')
+#     elif sort_options == 'price':
+#         products = products.order_by('price')
+#     elif sort_options == 'discount':
+#         products = products.order_by('-discount')
+#     return {'products' : products}    
+    
+
+    
