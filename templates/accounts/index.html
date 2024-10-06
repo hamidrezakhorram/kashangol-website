@@ -15,27 +15,30 @@
 	<div class="container" id="container">
 		<!-- start sing up form -->
 		<div class="form-container sign-up-container">
-			<form action="#" method="">
+			<form action="" method="post">
 				<h1>ایجاد حساب</h1>
-				
+				{% csrf_token %}
 				<span>یا با ایمیل خود حساب ایجاد کنید</span>
-				<input type="text" placeholder="نام" />
-				<input type="email" placeholder="ایمیل" />
-				<input type="password" placeholder="رمز عبور" />
-				<button type="submit">عضویت</button>
+				<input name="username" type="text" placeholder="نام کاربری" />
+				<input name="email" type="email" placeholder="ایمیل" />
+				<input name="password1" type="password" placeholder="رمز عبور" />
+				<input name="password2" type="password" placeholder="تایید رمز عبور" />
+				
+				<button type="submit" name ="signup_form">عضویت</button>
 			</form>
 		</div>
 		<!-- end sing up form -->
 		<!-- start sing in form -->
 		<div class="form-container sign-in-container">
-			<form action="#" method="">
+			<form action="" method="post">
 				<h1>ورود</h1>
-				
+				{% csrf_token %}
 				<span>یا با حساب خود وارد شوید</span>
-				<input type="email" placeholder="ایمیل" />
-				<input type="password" placeholder="رمز عبور" />
+				<input name = "username" type="text" placeholder="نام کاربری" />
+				<input name="password" type="password" placeholder="رمز عبور" />
 				<a href="#">رمز عبور خود را فراموش کرده ام !</a>
-				<button type="submit">ورود</button>
+				<button type="submit" name = "login_form">ورود</button>
+				
 			</form>
 		</div>
 		<!-- end sing in form -->

@@ -48,8 +48,16 @@
                         <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">info@kashangol.com</a></small>
                     </div>
                     <div class="top-link pe-2">
-                        <a href="{% url 'accounts:login' %}" class="text-white"><small class="text-white mx-2">ورود</small>/</a>
-                        <a href="{% url 'accounts:login' %}" class="text-white"><small class="text-white mx-2">عضویت</small></a>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'accounts:logout' %}" class="text-white"><small class="text-white mx-2">خروج</small></a>
+                        <a href="#" class="text-white"><small class="text-white mx-2">{{user.username}}</small></a>
+                        
+
+                        {% else %}
+                        
+                              <a href="{% url 'accounts:login' %}" class="text-white"><small class="text-white mx-2">ورود/عضویت</small></a>
+                        {% endif %}
+                        
                        
                     </div>
                 </div>
