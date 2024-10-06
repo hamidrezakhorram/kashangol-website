@@ -8,7 +8,7 @@
 	<title>قالب فرم عضویت و ورود :: دریافت شده از وب روبیک</title>
 	<!-- start css and styles -->
 	<link rel="stylesheet" href="{% static 'accounts/css/font-awesome.min.css' %}">
-	<link type="text/css" href="{S% static 'accounts/css/style.css' %}" />
+	<link type="text/css" href="{% static 'accounts/css/style.css' %}" rel="stylesheet" />
 	<!-- end css and styles -->
 </head>
 <body>
@@ -17,11 +17,7 @@
 		<div class="form-container sign-up-container">
 			<form action="#" method="">
 				<h1>ایجاد حساب</h1>
-				<div class="social-container">
-					<a href="#" class="social"><i class="fa fa-facebook-f"></i></a>
-					<a href="#" class="social"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
-				</div>
+				
 				<span>یا با ایمیل خود حساب ایجاد کنید</span>
 				<input type="text" placeholder="نام" />
 				<input type="email" placeholder="ایمیل" />
@@ -34,11 +30,7 @@
 		<div class="form-container sign-in-container">
 			<form action="#" method="">
 				<h1>ورود</h1>
-				<div class="social-container">
-					<a href="#" class="social"><i class="fa fa-facebook-f"></i></a>
-					<a href="#" class="social"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
-				</div>
+				
 				<span>یا با حساب خود وارد شوید</span>
 				<input type="email" placeholder="ایمیل" />
 				<input type="password" placeholder="رمز عبور" />
@@ -68,12 +60,7 @@
 		</div>
 	</div>
 	<!-- start footer -->
-	<footer>
-		<p>
-			translated with <i class="fa fa-heart"></i> by
-			<a target="_blank" href="http://webrubik.com">webrubik</a>
-		</p>
-	</footer>
+	
 	<!-- end footer -->
 
 	<!-- start javascript -->
