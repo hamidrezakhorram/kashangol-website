@@ -29,7 +29,7 @@ class Product(models.Model):
     tags = models.ManyToManyField(Tags)
     counted_views = models.IntegerField(default=0)
     rating = models.FloatField(default=0)
-    
+    sell_count = models.IntegerField(default=0)
     
 
 
