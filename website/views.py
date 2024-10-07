@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render , HttpResponseRedirect
 from shop.models import Category , Product
+from website.forms import Newsletterform
 
 
 # Create your views here.
@@ -39,3 +40,23 @@ def questions_views(request):
 def terms_views(request):
     return render(request, 'termusage.html')
 
+
+def return_views(request):
+    return render (request, 'returnpolicy.html')
+
+def newsletter_views(request):
+    if request.method == 'POST':
+        form = Newsletterform(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')  
+        else:
+            print('Form is invalid!')  
+           
+    else:
+        form = Newsletterform()  
+
+   
+    return HttpResponseRedirect('/')
+
+    

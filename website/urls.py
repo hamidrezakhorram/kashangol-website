@@ -12,6 +12,8 @@ urlpatterns = [
     path('cart' ,cart_views , name ='cart'),
     path('questions' ,questions_views , name ='questions'),
     path('terms' ,terms_views , name ='terms'),
+    path('retunpolicy' ,return_views , name ='return'),
+    path('newsletter' ,newsletter_views , name ='newsletter'),
 
     
 ]
