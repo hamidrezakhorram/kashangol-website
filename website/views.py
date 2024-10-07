@@ -24,8 +24,7 @@ def index_views(request):
 
 
 
-def articles_views(request):
-    return render(request, 'articles/article.html')
+
 
 def about_views(request):
     return render(request, 'about.html')

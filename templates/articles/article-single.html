@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6">{{ article.title }}</h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="{% url 'website:index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Articles</a></li>
+            <li class="breadcrumb-item active text-white">{{ article.title }}</li>
+        </ol>
+    </div>
+    <!-- Single Page Header End -->
+
+    <!-- Single Article Start -->
+    <div class="container-fluid py-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-8 col-xl-9">
+                    <div class="row g-4">
+                        <!-- Main Image -->
+                        <div class="col-lg-12">
+                            <div class="border rounded">
+                                <img src="{{ article.main_image.url }}" class="img-fluid rounded" alt="Article Image">
+                            </div>
+                        </div>
+                        
+                        <!-- Article Content -->
+                        <div class="col-lg-12">
+                            <h4 class="fw-bold mb-3">{{ article.title }}</h4>
+                            <p class="mb-3">
+                                <span><strong>Published on:</strong> {{ article.publish_date|date:"d M Y" }}</span>
+                                <span class="ms-4"><strong>Views:</strong> {{ article.views }}</span>
+                            </p>
+                            <p>{{ article.content|safe }}</p>
+                        </div>
+                        
+                        <!-- Comments Section -->
+                        <div class="col-lg-12">
+                            <nav>
+                                <div class="nav nav-tabs mb-3">
+                                    <button class="nav-link active border-white border-bottom-0" type="button" role="tab"
+                                            id="nav-comments-tab" data-bs-toggle="tab" data-bs-target="#nav-comments"
+                                            aria-controls="nav-comments" aria-selected="true">Comments</button>
+                                </div>
+                            </nav>
+                            <div class="tab-content mb-5">
+                                <div class="tab-pane active" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">
+                                    <!-- Sample Comments -->
+                                    {% for comment in article.comments.all %}
+                                    <div class="d-flex mb-4">
+                                        <img src="{% static 'img/avatar.jpg' %}" class="img-fluid rounded-circle p-3" style="width: 60px; height: 60px;" alt="Avatar">
+                                        <div class="ms-3">
+                                            <p class="mb-1" style="font-size: 14px;">{{ comment.publish_date|date:"d M Y" }}</p>
+                                            <h5>{{ comment.author }}</h5>
+                                            <p>{{ comment.content }}</p>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    
+                                    <!-- Leave a Comment Form -->
+                                    <form action="#" method="POST">
+                                        {% csrf_token %}
+                                        <h4 class="mb-5 fw-bold">Leave a Comment</h4>
+                                        <div class="row g-4">
+                                            <div class="col-lg-6">
+                                                <div class="border-bottom rounded">
+                                                    <input type="text" class="form-control border-0" placeholder="Your Name *" name="name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="border-bottom rounded">
+                                                    <input type="email" class="form-control border-0" placeholder="Your Email *" name="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="border-bottom rounded my-4">
+                                                    <textarea name="content" class="form-control border-0" cols="30" rows="4" placeholder="Your Comment *" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <button type="submit" class="btn border border-secondary text-primary rounded-pill px-4 py-3">Post Comment</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar for Related Articles -->
+                <div class="col-lg-4 col-xl-3">
+                    <div class="row g-4">
+                        <h4>Related Articles</h4>
+                        {% for related_article in related_articles %}
+                        <div class="col-lg-12 mb-4">
+                            <div class="border rounded p-3">
+                                <h5>{{ related_article.title }}</h5>
+                                <p>{{ related_article.content|truncatewords:20 }}</p>
+                                <a href="{% url 'blog:single_article' related_article.id %}" class="btn btn-sm btn-primary">Read More</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Single Article End -->
+
+{% endblock %}
