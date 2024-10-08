@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from .models import Post
 # Create your views here.
 
@@ -10,6 +10,8 @@ def articles_views(request):
 
 
 
-def single_views(request):
-    return render(request, 'articles/article-single.html')
+def single_views(request , pid):
+    posts = get_object_or_404(Post , pk=pid  , pub_status=True)
+    context = {'post': posts}
+    return render(request, 'articles/article-single.html' , context)
     

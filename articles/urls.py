@@ -4,7 +4,7 @@ app_name= 'articles'
 
 urlpatterns = [
     path('' ,articles_views , name ='index'),
-    path('/single', single_views , name ='single'),
+    path('/<int:pid>', single_views , name ='single'),
 
 
     
