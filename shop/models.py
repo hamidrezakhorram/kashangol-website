@@ -49,3 +49,16 @@ class Cartitem(models.Model):
     def __str__(self) -> str:
         return self.product.name
 
+
+class Commentproduct(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
+    created_date = models.DateField(auto_now_add= True)
+    update_date = models.DateField(auto_now=True)
+    approved = models.BooleanField(default=False)
+
+
+    def __str__(self) -> str:
+        return self.name

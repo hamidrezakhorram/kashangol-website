@@ -1,5 +1,9 @@
 from django.shortcuts import render , get_object_or_404 , redirect
-from shop.models import Product ,Category , Cartitem
+from shop.models import  * 
+from shop.forms import CommentForm
+
+# from shop.forms import CommentForm
+
 from django.core.paginator import Paginator , PageNotAnInteger , EmptyPage
 from django.db.models import Max
 
@@ -56,7 +60,23 @@ def singel_views(request , pid):
     products=get_object_or_404(Product , pk = pid , pub_status = 1)
     products_category = products.category.all()
     products_offer =Product.objects.filter(category__in =products_category).exclude(pk= products.pk)
-    context={'products': products , 'products_offer': products_offer} 
+    comments = Commentproduct.objects.filter(product=products.id, approved=True).order_by('created_date')
+    form = CommentForm()
+
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.product = products  # Associate the comment with the product
+            comment.approved = False  # You may want to set this based on your approval logic
+            comment.save()
+            return redirect('shop:single', pid=pid)  # Redirect to avoid form resubmission
+
+
+    
+       
+    context={'products': products , 'products_offer': products_offer , 'comments': comments , 'form': form} 
     return render(request, 'shop/shop-detail.html' , context)
 
 def discount_views(request):
