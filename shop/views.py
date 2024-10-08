@@ -1,5 +1,5 @@
-from django.shortcuts import render , get_object_or_404
-from shop.models import Product ,Category
+from django.shortcuts import render , get_object_or_404 , redirect
+from shop.models import Product ,Category , Cartitem
 from django.core.paginator import Paginator , PageNotAnInteger , EmptyPage
 from django.db.models import Max
 
@@ -70,16 +70,43 @@ def discount_views(request):
 
     
 def search_views(request):
-    products =Product.objects.filter(pub_status=1)  # Filter only active posts
-    query = request.GET.get('s')  # Get search query
+    products =Product.objects.filter(pub_status=1)  
+    query = request.GET.get('s')  
     if query:
-        products = products.filter(name__icontains=query)  # Perform case-insensitive search
+        products = products.filter(name__icontains=query)
     context = {'products': products}
     return render(request, 'shop/shop.html', context)    
 
 
-# def category_views(request , category_name) :
-#    products = Product.objects.filter( pub_status = True)
-#    products =products.filter(category__name = category_name)
-#    context = {'products' : products}
-#    return render(request , 'shop/shop-categories.html' , context )
+def cart_views(request):
+    cart_items = Cartitem.objects.filter(user=request.user)
+    
+    for item in cart_items:
+       item.total_price = item.product.price * item.quantity
+    total_price = sum(item.product.price * item.quantity for item in cart_items)
+    total_discount = sum(item.product.discount * item.quantity for item in cart_items)
+    final_price = total_price - total_discount
+
+    context = { 'cart_items': cart_items,
+                'total_price': total_price,
+                'final_price': final_price,
+                'total_discount': total_discount,
+                
+    }
+    return render(request, 'shop/cart.html', context)
+
+def add_to_cart_views(request, product_id):
+    product = Product.objects.get(id=product_id)
+    cart_item , create = Cartitem.objects.get_or_create(product=product,  user=request.user)
+    cart_item.quantity += 1
+    cart_item.save()
+    return redirect('shop:view_cart')
+
+
+def remove_from_cart_views(request, item_id):
+    cart_item = Cartitem.objects.get(id=item_id)
+    cart_item.delete()
+    return redirect('shop:view_cart')
+
+   
+   

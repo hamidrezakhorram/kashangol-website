@@ -1,5 +1,5 @@
 from django.shortcuts import render , HttpResponseRedirect
-from shop.models import Category , Product
+from shop.models import Category , Product , Cartitem
 from website.forms import Newsletterform
 
 
@@ -32,8 +32,7 @@ def about_views(request):
 def contact_views(request):
     return render(request, 'contact.html')
 
-def cart_views(request):
-    return render(request, 'shop/cart.html')
+
 def questions_views(request):
     return render(request, 'F&Q.html')
 def terms_views(request):

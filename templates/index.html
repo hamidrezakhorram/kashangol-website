@@ -144,8 +144,8 @@
                                                     <p>{{ product.content|truncatewords:10 }}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">{{ product.price }}</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary">
-                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        <a href="{% url 'shop:add_to_cart' product.id %}" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i>افزودن به سبد
                                                         </a>
                                                     </div>
                                                 </div>
@@ -268,7 +268,7 @@
                                         {% endfor %}
                                     </div>
                                     <h4 class="mb-3">{{product.price}}</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                    <a href="{% url 'shop:add_to_cart' product.id %}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>افزودن به سبد</a>
                                 </div>
                             </div>
                         </div>
