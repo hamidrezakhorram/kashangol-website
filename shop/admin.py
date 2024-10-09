@@ -1,10 +1,12 @@
 from django.contrib import admin
 from shop.models import *
+from django_summernote.admin import SummernoteModelAdmin 
 
 
 
-class ProducAdmin(admin.ModelAdmin):
-   
+
+class ProducAdmin(SummernoteModelAdmin):
+    summernote_fields = ('content',)
     date_hierarchy = 'created_date'
     empty_value_display = 'empty'
     list_display = ('name' ,'pub_status','published_date','created_date' , 'price' , 'discount')
