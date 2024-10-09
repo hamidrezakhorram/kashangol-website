@@ -58,6 +58,7 @@ class Commentproduct(models.Model):
     created_date = models.DateField(auto_now_add= True)
     update_date = models.DateField(auto_now=True)
     approved = models.BooleanField(default=False)
+    rating =models.PositiveIntegerField(default=0)
 
 
     def __str__(self) -> str:

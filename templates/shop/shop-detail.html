@@ -111,12 +111,10 @@
                                                 <p class="mb-2" style="font-size: 14px;">{{comment.created_date|date:"d M Y"}}</p>
                                                 <div class="d-flex justify-content-between">
                                                     <h5 style="font-family: 'Vazir', sans-serif;">{{comment.name}}</h5>
-                                                    <div class="d-flex mb-3">
-                                                        <i class="fa fa-star text-secondary"></i>
-                                                        <i class="fa fa-star text-secondary"></i>
-                                                        <i class="fa fa-star text-secondary"></i>
-                                                        <i class="fa fa-star text-secondary"></i>
-                                                        <i class="fa fa-star"></i>
+                                                    <div class="stars">
+                                                        {% for i in "12345"|make_list %}
+                                                        <span class="star">{% if i <= comment.rating|floatformat:0 %}<i class="fa fa-star text-secondary"></i> {% else %}<i class="fa fa-star"></i>{% endif %}</span>
+                                                        {% endfor %}
                                                     </div>
                                                 </div>
                                                 <p>{{comment.message}} 
@@ -156,16 +154,18 @@
                                             {{ form.captcha }}  <!-- This will render the captcha field -->
                                         </div>
                                     </div>
+                                    <input type="hidden" name="rating" id="rating-value">
+
                                     <div class="col-lg-12">
                                         <div class="d-flex justify-content-between py-3 mb-5">
                                             <div class="d-flex align-items-center">
-                                                <p class="mb-0 me-3">Please rate:</p>
-                                                <div class="d-flex align-items-center" style="font-size: 12px;">
-                                                    <i class="fa fa-star text-muted"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
+                                                <p class="mb-0 me-3">امتیاز شما:</p>
+                                                <div class="d-flex align-items-center" id="rating-stars" style="font-size: 24px;">
+                                                    <i class="fa fa-star text-muted" data-value="1"></i>
+                                                    <i class="fa fa-star text-muted" data-value="2"></i>
+                                                    <i class="fa fa-star text-muted" data-value="3"></i>
+                                                    <i class="fa fa-star text-muted" data-value="4"></i>
+                                                    <i class="fa fa-star text-muted" data-value="5"></i>
                                                 </div>
                                             </div>
                                             <button  type='submit'  class="btn border border-secondary text-primary rounded-pill px-4 py-3"> ارسال</button>
@@ -173,6 +173,31 @@
                                     </div>
                                 </div>
                             </form>
+                            <!-- JavaScript for Interactive Star Rating -->
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    const stars = document.querySelectorAll('#rating-stars .fa-star');
+                                    const ratingValue = document.getElementById('rating-value');
+                            
+                                    stars.forEach(star => {
+                                        star.addEventListener('click', function() {
+                                            const value = this.getAttribute('data-value');
+                                            ratingValue.value = value;  // Set the hidden rating input
+                            
+                                            // Reset all stars to default
+                                            stars.forEach(s => s.classList.remove('text-warning'));
+                                            stars.forEach(s => s.classList.add('text-muted'));
+                            
+                                            // Highlight the stars up to the selected one
+                                            for (let i = 0; i < value; i++) {
+                                                stars[i].classList.remove('text-muted');
+                                                stars[i].classList.add('text-warning');
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+
 
                         </div>
                     </div>

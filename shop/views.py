@@ -62,16 +62,25 @@ def singel_views(request , pid):
     products_offer =Product.objects.filter(category__in =products_category).exclude(pk= products.pk)
     comments = Commentproduct.objects.filter(product=products.id, approved=True).order_by('created_date')
     form = CommentForm()
+    rating =0
+    rating_count = 0
+    for user in comments :
+       rating = user.rating + rating
+       rating_count +=1
+
+    products.rating = rating / rating_count   
+
 
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.product = products  # Associate the comment with the product
-            comment.approved = False  # You may want to set this based on your approval logic
+            comment.product = products  
+            comment.approved = False 
+            comment.rating = request.POST.get('rating')
             comment.save()
-            return redirect('shop:single', pid=pid)  # Redirect to avoid form resubmission
+            return redirect('shop:single', pid=pid)  
 
 
     
