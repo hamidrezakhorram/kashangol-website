@@ -11,7 +11,7 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-md-12 col-lg-7">
                         <h4 class="mb-3 text-secondary">100% طبیعی</h4>
-                        <h1 class="mb-5 display-3 text-primary">عطر و گلاب و عرقیات کاشان</h1>
+                        <h1 class="mb-5 display-3 text-primary" style="font-family: 'Vazir', sans-serif;">عطر و گلاب و عرقیات کاشان</h1>
                         <div class="position-relative mx-auto">
                             <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="Search">
                             <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Submit Now</button>
@@ -46,7 +46,7 @@
 
 
         <!-- Featurs Section Start -->
-        <div class="container-fluid featurs py-5">
+        <div class="container-fluid featurs py-5" style="font-family: 'Vazir', sans-serif;">
             <div class="container py-5">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
@@ -55,7 +55,7 @@
                                 <i class="fas fa-car-side fa-3x text-white"></i>
                             </div>
                             <div class="featurs-content text-center">
-                                <h5>ارسال رایگان</h5>
+                                <h5 style="font-family: 'Vazir', sans-serif;">ارسال رایگان</h5>
                                 <p class="mb-0">ارسال رایگان برای خریدهای بیش از 500 هزار تومان</p>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                 <i class="fas fa-exchange-alt fa-3x text-white"></i>
                             </div>
                             <div class="featurs-content text-center">
-                                <h5>سی روز مهلت بازگشت</h5>
+                                <h5 style="font-family: 'Vazir', sans-serif;">سی روز مهلت بازگشت</h5>
                                 <p class="mb-0">سی روز ضمانت بازگشت وجه</p>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                 <i class="fa fa-phone-alt fa-3x text-white"></i>
                             </div>
                             <div class="featurs-content text-center">
-                                <h5>24/7 پشتیبانی</h5>
+                                <h5 style="font-family: 'Vazir', sans-serif;">24/7 پشتیبانی</h5>
                                 <p class="mb-0">پشتیبانی بسیار سریع</p>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                 <i class="fas fa-user-shield fa-3x text-white"></i>
                             </div>
                             <div class="featurs-content text-center">
-                                <h5>پرداخت امن</h5>
+                                <h5 style="font-family: 'Vazir', sans-serif;">پرداخت امن</h5>
                                 <p class="mb-0">پرداخت 100 درصد امن</p>
                             </div>
                         </div>
@@ -102,16 +102,16 @@
         <!-- Fruits Shop Start-->
         <div class="container-fluid fruite py-5">
             <div class="container py-5">
-                <div class="tab-class text-center">
+                <div class="tab-class text-center" style="font-family: 'Vazir', sans-serif;">
                     <div class="row g-4">
                         <div class="col-lg-4 text-start">
-                            <h1>محصولات ما</h1>
+                            <h1 style="font-family: 'Vazir', sans-serif;">محصولات ما</h1>
                         </div>
                         <div class="col-lg-8 text-end">
                             <ul class="nav nav-pills d-inline-flex text-center mb-5">
                                 <li class="nav-item">
                                     <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-all">
-                                        <span class="text-dark" style="width: 130px;">همه محصولات</span>
+                                        <span class="text-dark" style="width: 130px;" >همه محصولات</span>
                                     </a>
                                 </li>
                                 {% for cat in categories %}
@@ -143,7 +143,7 @@
                                                     <h4>{{ product.name }}</h4>
                                                     <p>{{ product.content|truncatewords:10 }}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">{{ product.price }}</p>
+                                                        <p class="text-dark fs-5 fw-bold mb-0" >{{ product.price }}</p>
                                                         <a href="{% url 'shop:add_to_cart' product.id %}" class="btn border border-secondary rounded-pill px-3 text-primary">
                                                             <i class="fa fa-shopping-bag me-2 text-primary"></i>افزودن به سبد
                                                         </a>
@@ -159,8 +159,8 @@
                     
                         <!-- Category Tabs -->
                         {% for category, products in products_by_category.items %}
-                        <div id="tab-{{ category.id }}" class="tab-pane fade p-0">
-                            <div class="row g-4">
+                        <div id="tab-{{ category.id }}" class="tab-pane fade p-0" >
+                            <div class="row g-4" >
                                 <div class="col-lg-12">
                                     <div class="row g-4">
                                         {% for product in products %}
@@ -203,9 +203,9 @@
 
 
         <!-- Vesitable Shop Start-->
-        <div class="container-fluid vesitable py-5">
+        <div class="container-fluid vesitable py-5" style="font-family: 'Vazir', sans-serif;">
             <div class="container py-5">
-                <h1 class="mb-0">پیشنهادهای ویژه</h1>
+                <h1 class="mb-0" style="font-family: 'Vazir', sans-serif;">پیشنهادهای ویژه</h1>
                 <div class="owl-carousel vegetable-carousel justify-content-center">
                     {% for product in products %}
                     {% if product.discount != 0 %} 
@@ -246,10 +246,10 @@
 
 
         <!-- Bestsaler Product Start -->
-        <div class="container-fluid py-5">
-            <div class="container py-5">
+        <div class="container-fluid py-5" >
+            <div class="container py-5" style="font-family: 'Vazir', sans-serif;">
                 <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-                    <h1 class="display-4">پرفروش ترین محصولات</h1>
+                    <h1 class="display-4" style="font-family: 'Vazir', sans-serif;">پرفروش ترین محصولات</h1>
                    
                 </div>
                 <div class="row g-4">
@@ -261,7 +261,7 @@
                                     <img src="{{product.image.url}}" class="img-fluid rounded-circle w-100" alt="">
                                 </div>
                                 <div class="col-6">
-                                    <a href="#" class="h5">{{product.name}}</a>
+                                    <a href="#" class="h5" style="font-family: 'Vazir', sans-serif;">{{product.name}}</a>
                                     <div class="d-flex my-3">
                                         {% for i in "12345"|make_list %}
                                         <span class="star">{% if i <= product.rating|floatformat:0 %}<i class="fa fa-star text-secondary"></i> {% else %}<i class="fa fa-star"></i>{% endif %}</span>
@@ -286,10 +286,10 @@
 
 
         <!-- Tastimonial Start -->
-        <div class="container-fluid testimonial py-5">
+        <div class="container-fluid testimonial py-5" style="font-family: 'Vazir', sans-serif;">
             <div class="container py-5">
                 <div class="testimonial-header text-center">
-                    <h1 class="text-primary">جدیدترین مقالات</h1>
+                    <h1 class="text-primary" style="font-family: 'Vazir', sans-serif;">جدیدترین مقالات</h1>
                     
                 </div>
                 <div class="owl-carousel testimonial-carousel">

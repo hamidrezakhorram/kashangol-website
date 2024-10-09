@@ -4,19 +4,19 @@
 
 
         <!-- Single Page Header start -->
-        <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Cart</h1>
+        <div class="container-fluid page-header py-5" style="font-family: 'Vazir', sans-serif;">
+            <h1 class="text-center text-white display-6" style="font-family: 'Vazir', sans-serif;">Cart</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active text-white">Cart</li>
+                <li class="breadcrumb-item"><a href="{% url 'website:index'}">خانه</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'shop:shop'}">محصولات</a></li>
+                <li class="breadcrumb-item active text-white">سبد خرید</li>
             </ol>
         </div>
         <!-- Single Page Header End -->
 
 
         <!-- Cart Page Start -->
-        <div class="container-fluid py-5">
+        <div class="container-fluid py-5" style="font-family: 'Vazir', sans-serif; direction: rtl; text-align:right;">
             <div class="container py-5">
                 <div class="table-responsive">
                     <table class="table">
@@ -85,13 +85,13 @@
                     <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
                         <div class="bg-light rounded">
                             <div class="p-4">
-                                <h1 class="display-6 mb-4">جمع کل<span class="fw-normal"></span></h1>
+                                <h1 class="display-6 mb-4"  style="font-family: 'Vazir', sans-serif;">جمع کل<span class="fw-normal"></span></h1>
                                 <div class="d-flex justify-content-between mb-4">
-                                    <h5 class="mb-0 me-4">جمع کل:</h5>
+                                    <h5 class="mb-0 me-4"  style="font-family: 'Vazir', sans-serif;">جمع کل:</h5>
                                     <p class="mb-0">{{total_price}}</p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <h5 class="mb-0 me-4">تخفیف</h5>
+                                    <h5 class="mb-0 me-4"  style="font-family: 'Vazir', sans-serif;">تخفیف</h5>
                                     <div class="">
                                         <p class="mb-0">{{total_discount}}</p>
                                     </div>
@@ -99,7 +99,7 @@
                                 <p class="mb-0 text-end"></p>
                             </div>
                             <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
-                                <h5 class="mb-0 ps-4 me-4">قابل پرداخت</h5>
+                                <h5 class="mb-0 ps-4 me-4"  style="font-family: 'Vazir', sans-serif;">قابل پرداخت</h5>
                                 <p class="mb-0 pe-4">{{final_price}}</p>
                             </div>
                             <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">نهایی کردن خرید</button>

@@ -3,8 +3,8 @@
 {% block content%}
 
 
-<div class="container-fluid page-header py-5">
-    <h1 class="text-center text-white display-6">مقالات</h1>
+<div class="container-fluid page-header py-5" style="font-family: 'Vazir', sans-serif;">
+    <h1 class="text-center text-white display-6" style="font-family: 'Vazir', sans-serif;">مقالات</h1>
     <ol class="breadcrumb justify-content-center mb-0">
         <li class="breadcrumb-item"><a href="{% url 'website:index' %}">خانه</a></li>
         
@@ -12,7 +12,7 @@
     </ol>
 </div>
 <!-- Articles Start -->
-<div class="container py-5">
+<div class="container py-5" style="font-family: 'Vazir', sans-serif; direction: rtl; text-align:right;">
     <div class="row g-5">
         <div class="col-lg-12">
             <h1 class="mb-4">مقالات</h1>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{post.name}}</h5>
+                            <h5 class="card-title" style="font-family: 'Vazir', sans-serif;">{{post.title}}</h5>
                             <p class="card-text">
                                 {{post.text|truncatewords:20}}
                             </p>

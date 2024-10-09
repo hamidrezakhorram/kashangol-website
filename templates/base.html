@@ -12,7 +12,13 @@
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Vazir', sans-serif; /* Apply the font to the body */
+            }
+        </style>
+
 
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -42,9 +48,9 @@
         <!-- Navbar start -->
         <div class="container-fluid fixed-top">
             <div class="container topbar bg-primary d-none d-lg-block">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between" style="font-family: 'Vazir', sans-serif;">
                     <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">09214986156</a></small>
+                        <small class="me-3"><i class="fas fa-phone me-2 text-secondary"></i> <a href="#" class="text-white">09214986156</a></small>
                         <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">info@kashangol.com</a></small>
                     </div>
                     <div class="top-link pe-2">
@@ -55,7 +61,7 @@
 
                         {% else %}
                         
-                              <a href="{% url 'accounts:login' %}" class="text-white"><small class="text-white mx-2">ورود/عضویت</small></a>
+                              <a href="{% url 'accounts:login' %}" class="text-white"><small class="text-white mx-2" >ورود/عضویت</small></a>
                         {% endif %}
                         
                        
@@ -64,11 +70,11 @@
             </div>
             <div class="container px-0">
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="{% url 'website:index' %}" class="navbar-brand"><h1 class="text-primary display-6">کاشان گل</h1></a>
+                    <a href="{% url 'website:index' %}" class="navbar-brand"><h1 class="text-primary display-6" style="font-family: 'Vazir', sans-serif;">کاشان گل</h1></a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
                     </button>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse" style="font-family: 'Vazir', sans-serif;">
                         <div class="navbar-nav mx-auto">
                             <a href="{% url 'website:index' %}" class="nav-item nav-link active">خانه</a>
                             <a href="{% url 'shop:shop' %}" class="nav-item nav-link">محصولات</a>
@@ -112,12 +118,12 @@
         {% endblock %}
        <!-- Footer Start -->
        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-        <div class="container py-5">
+        <div class="container py-5" style="font-family: 'Vazir', sans-serif;">
             <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
                 <div class="row g-4">
                     <div class="col-lg-3">
                         <a href="#">
-                            <h1 class="text-primary mb-0">کاشان گل</h1>
+                            <h1 class="text-primary mb-0" style="font-family: 'Vazir', sans-serif;">کاشان گل</h1>
                             <p class="text-secondary mb-0">عرقیجات کاشان</p>
                         </a>
                     </div>
@@ -126,7 +132,7 @@
                         {% csrf_token %}
                           <div class="position-relative mx-auto">
                               <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="ایمیل شما" name="email">
-                              <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
+                              <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">عضو شوید</button>
                           </div>
                       </form> 
                     </div>
@@ -140,11 +146,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row g-5">
+            <div class="row g-5" style="font-family: 'Vazir', sans-serif;direction: rtl; text-align:center; ">
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="d-flex flex-column text-start footer-item">
-                        <h4 class="text-light mb-3">راهنمای خرید</h4>
+                <div class="col-lg-3 col-md-6"  >
+                    <div class="d-flex flex-column text-start footer-item" style ="direction: rtl; text-align: right;">
+                        <h4 class="text-light mb-3" style="font-family: 'Vazir', sans-serif;">راهنمای خرید</h4>
                         <a class="btn-link" href="{% url 'website:about' %}">درباره ما</a>
                         <a class="btn-link" href="{% url 'website:contact' %}">تماس با ما</a>
                         <a class="btn-link" href="{% url 'website:terms' %}">شرایط و قوانین استفاده</a>
@@ -154,14 +160,14 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex flex-column text-start footer-item">
-                        <h4 class="text-light mb-3">اکانت</h4>
+                        <h4 class="text-light mb-3" style="font-family: 'Vazir', sans-serif;">اکانت</h4>
                         <a class="btn-link" href="{% url 'shop:view_cart' %}">سبد خرید</a>
                       
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
-                        <h4 class="text-light mb-3">تماس با ما</h4>
+                    <div class="footer-item" >
+                        <h4 class="text-light mb-3" style="font-family: 'Vazir', sans-serif;">تماس با ما</h4>
                         <p>آدرس:تهران ، خیابان انقلاب ، روبروی پیچ شمیران ، پلاک 352 ، طبقه 6 ، واحد 31</p>
                         <p>info@kashangol.com:ایمیل</p>
                         <p>تلفن : 02177670973 </p>

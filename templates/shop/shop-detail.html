@@ -6,8 +6,8 @@
 
 
         <!-- Single Page Header start -->
-        <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">{{products.name}}</h1>
+        <div class="container-fluid page-header py-5" style="font-family: 'Vazir', sans-serif;">
+            <h1 class="text-center text-white display-6" style="font-family: 'Vazir', sans-serif;">{{products.name}}</h1>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="{% url 'website:index' %}">خانه</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'shop:shop' %}">محصولات</a></li>
@@ -18,9 +18,9 @@
 
 
         <!-- Single Product Start -->
-        <div class="container-fluid py-5 mt-5">
+        <div class="container-fluid py-5 mt-5" style="font-family: 'Vazir', sans-serif;">
             <div class="container py-5">
-                <div class="row g-4 mb-5">
+                <div class="row g-4 mb-5" style =" direction: rtl; text-align:right;">
                     <div class="col-lg-8 col-xl-9">
                         <div class="row g-4">
                             <div class="col-lg-6">
@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <h4 class="fw-bold mb-3">{{products.name}}</h4>
-                                <p class="mb-3">Category: {{products.category.all|join:" ,"}}</p>
+                                <p class="mb-3">دسته بندی: {{products.category.all|join:" ,"}}</p>
                                 <h5 class="fw-bold mb-3">{{products.price}}</h5>
                                 <div class="stars">
                                     {% for i in "12345"|make_list %}
@@ -110,7 +110,7 @@
                                             <div class="">
                                                 <p class="mb-2" style="font-size: 14px;">{{comment.created_date|date:"d M Y"}}</p>
                                                 <div class="d-flex justify-content-between">
-                                                    <h5>{{comment.name}}</h5>
+                                                    <h5 style="font-family: 'Vazir', sans-serif;">{{comment.name}}</h5>
                                                     <div class="d-flex mb-3">
                                                         <i class="fa fa-star text-secondary"></i>
                                                         <i class="fa fa-star text-secondary"></i>
@@ -134,7 +134,7 @@
                                 {% csrf_token %}
                                 <input type="hidden" name="product" value="{{ products.id }}">
 
-                                <h4 class="mb-5 fw-bold">نظر دهید</h4>
+                                <h4 class="mb-5 fw-bold" style="font-family: 'Vazir', sans-serif;">نظر دهید</h4>
                                 <div class="row g-4">
                                     <div class="col-lg-6">
                                         <div class="border-bottom rounded">
@@ -189,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="fw-bold mb-0">محصولات مشابه</h1>
+                <h1 class="fw-bold mb-0" style="font-family: 'Vazir', sans-serif;direction: rtl;">محصولات مشابه</h1>
                 <div class="vesitable">
                     
                     <div class="owl-carousel vegetable-carousel justify-content-center">
@@ -203,7 +203,7 @@
                                     {{ product.name }}
                                 </div>
                                 <div class="p-4 pb-0 rounded-bottom">
-                                    <h4>{{ product.name }}</h4>
+                                    <h4 style="font-family: 'Vazir', sans-serif;">{{ product.name }}</h4>
                                     <p>{{product|truncatewords:10}}</p>
                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                         <p class="text-dark fs-5 fw-bold">{{ product.price }}</p>
