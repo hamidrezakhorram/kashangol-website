@@ -7,6 +7,7 @@ from django.core.paginator import Paginator , PageNotAnInteger , EmptyPage
 
 def articles_views(request):
     posts = Post.objects.filter(pub_status=True).order_by('published_date')
+    
     #pagination
     posts = Paginator(posts , 10)
     try:
@@ -24,6 +25,9 @@ def articles_views(request):
 
 def single_views(request , pid):
     posts = get_object_or_404(Post , pk=pid  , pub_status=True)
+    if posts :
+        posts.counted_views = posts.counted_views + 1
+        posts.save()
     comments = Commentpost.objects.filter(post=posts.id, approved=True).order_by('created_date')
     form = CommentForm()
 

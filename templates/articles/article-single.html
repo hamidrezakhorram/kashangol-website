@@ -21,9 +21,11 @@
                     <div class="row g-4">
                         <!-- Main Image -->
                         <div class="col-lg-12">
-                            <div class="border rounded">
-                                <img src="{{ post.image.url }}" class="img-fluid rounded" alt="Article Image">
-                            </div>
+                            
+                                <div class="image-wrapper">
+                                    <img src="{{ post.image.url }}" class="img-fluid rounded-start" alt="{{ post.title }}">
+                                </div>
+                
                         </div>
                         
                         <!-- Article Content -->

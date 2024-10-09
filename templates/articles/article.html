@@ -24,7 +24,9 @@
             <div class="card border-0 shadow-sm">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{post.image.url}}" class="img-fluid rounded-start" alt="Article 1">
+                        <div class="image-wrapper">
+                            <img src="{{ post.image.url }}" class="img-fluid rounded-start" alt="{{ post.title }}">
+                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
