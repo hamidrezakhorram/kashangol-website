@@ -1,10 +1,21 @@
 from django.shortcuts import render , get_object_or_404 , redirect
 from .models import *
 from .forms import CommentForm
+from django.core.paginator import Paginator , PageNotAnInteger , EmptyPage
+
 # Create your views here.
 
 def articles_views(request):
     posts = Post.objects.filter(pub_status=True).order_by('published_date')
+    #pagination
+    posts = Paginator(posts , 10)
+    try:
+        page_number = request.GET.get('page')
+        posts =posts.page(page_number)
+    except PageNotAnInteger:
+        posts = posts.page(1) 
+    except EmptyPage:
+        posts = posts.page(1)       
     context = {'posts': posts}
 
     return render(request, 'articles/article.html' , context)
