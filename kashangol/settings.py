@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ybmg71&dc@$qnmj1l3f8^rs=%td1%$sagd)@*o50)fypybgym@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
+DEBUG =False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kashangol.com' , 'www.kashangol.com']
 
 
 # Application definition
@@ -140,3 +140,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'simple-captcha',
 }
+
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
+SECRET_KEY = env('DJANGO_SECRET_KEY')
