@@ -15,5 +15,6 @@ urlpatterns = [
     path('retunpolicy' ,return_views , name ='return'),
     path('newsletter' ,newsletter_views , name ='newsletter'),
 
+
     
 ]

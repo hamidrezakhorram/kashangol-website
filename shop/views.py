@@ -67,8 +67,8 @@ def singel_views(request , pid):
     for user in comments :
        rating = user.rating + rating
        rating_count +=1
-
-    products.rating = rating / rating_count   
+    if rating_count != 0:
+        products.rating = rating / rating_count   
 
 
 

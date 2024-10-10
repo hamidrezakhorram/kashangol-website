@@ -11,10 +11,13 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-md-12 col-lg-7">
                         <h4 class="mb-3 text-secondary" style="direction: rtl; text-align:right;">100% طبیعی</h4>
-                        <h1 class="mb-5 display-3 text-primary" style="font-family: 'Vazir', sans-serif;direction: rtl; text-align:center;">عطر و گلاب و عرقیات کاشان</h1>
-                        <div class="position-relative mx-auto" style="text-align:right;" dir="rtl">
-                            <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="جستجو" style="text-align:right; padding-right: 150px;">
-                            <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0; z-index: 1;">اکنون ارسال کنید</button>
+                        <h1 class="mb-5 display-3 text-primary" style="font-family: 'Vazir', sans-serif;direction: rtl; text-align:right;"> گلاب و عرقیات کاشان</h1>
+                        <div class="position-relative mx-auto" >
+                            <form action="{% url 'shop:search' %}" method="get">
+                                <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="text" placeholder="جستجو در محصولات" name="s">
+                                <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0; z-index: 1;">اکنون ارسال کنید</button>
+                            </form>
+
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-5">
@@ -140,7 +143,7 @@
                                                     {{ product.category.first.name }}
                                                 </div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{{ product.name }}</h4>
+                                                    <a href="{% url 'shop:single' pid=product.id  %}"><h4 style="font-family: 'Vazir', sans-serif;">{{ product.name }}</h4></a>
                                                     <p>{{ product.content|truncatewords:10 }}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0" >{{ product.price }}</p>
@@ -173,11 +176,11 @@
                                                     {{ category.name }}
                                                 </div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{{ product.name }}</h4>
+                                                    <a href="{% url 'shop:single' pid=product.id  %}"><h4>{{ product.name }}</h4></a>
                                                     <p>{{ product.content|truncatewords:10 }}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">{{ product.price }}</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <a href="{% url 'shop:add_to_cart' product.id %}" class="btn border border-secondary rounded-pill px-3 text-primary">
                                                             <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                                         </a>
                                                     </div>
@@ -218,7 +221,7 @@
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">{{cat.name}}</div>
                         {% endfor %}
                         <div class="p-4 rounded-bottom">
-                            <h4>{{product.name}}</h4>
+                            <a href="{% url 'shop:single' pid=product.id  %}"><h4 style="font-family: 'Vazir', sans-serif;">{{product.name}}</h4></a>
                             <p>{{product.content|truncatewords:10}}</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold mb-0">{{product.price}}</p>
@@ -261,7 +264,7 @@
                                     <img src="{{product.image.url}}" class="img-fluid rounded-circle w-100" alt="">
                                 </div>
                                 <div class="col-6">
-                                    <a href="#" class="h5" style="font-family: 'Vazir', sans-serif;">{{product.name}}</a>
+                                    <a href="{% url 'shop:single' pid=product.id  %}" class="h5" style="font-family: 'Vazir', sans-serif;">{{product.name}}</a>
                                     <div class="d-flex my-3">
                                         {% for i in "12345"|make_list %}
                                         <span class="star">{% if i <= product.rating|floatformat:0 %}<i class="fa fa-star text-secondary"></i> {% else %}<i class="fa fa-star"></i>{% endif %}</span>
@@ -306,8 +309,8 @@
                                     <img src="{{post.image.url}}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block">
-                                    <h4 class="text-dark">{{post.title}}</h4>
-                                    <p class="m-0 pb-3">Profession</p>
+                                   <a href="{% url 'articles:single' pid=post.id  %}"> <h4 class="text-dark" style="font-family: 'Vazir', sans-serif;">{{post.title}}</h4></a>
+                                    
                                     <div class="stars">
                                         {% for i in "12345"|make_list %}
                                         <span class="star">{% if i <= post.rating|floatformat:0 %}<i class="fa fa-star text-secondary"></i> {% else %}<i class="fa fa-star"></i>{% endif %}</span>
