@@ -79,12 +79,14 @@
                                     
                                     <div class="col-md-6 col-lg-6 col-xl-4">
                                         
-                                        <div class="rounded position-relative fruite-item">
+                                        <div class="rounded position-relative fruite-item product-item">
                                             
-                                            <div class="fruite-img">
+                                            <div class="fruite-img product-image">
                                                 <img src="{{product.image.url}}" class="img-fluid w-100 rounded-top" alt="" >
                                             </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{product.tags.name}}</div>
+                                            
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;"> {{ product.category.first.name }}</div>
+                                            
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <a href="{% url 'shop:single' pid=product.id  %}"><h4 style="font-family: 'Vazir', sans-serif;">{{product.name}}</h4></a>
                                                 <p>{{product.content|truncatewords:10}}</p>
@@ -107,30 +109,25 @@
                                     
                                     
                                     <div class="col-12">
-                                        <div class="pagination d-flex justify-content-center mt-5">
-                                            {% if products.has_previous %}
-                                                <a href="?page=1" class="rounded">&laquo;</a>
-                                                <a href="?page={{ products.previous_page_number }}" class="rounded">قبل</a>
-                                            {% else %}
-                                                <a href="#" class="rounded disabled">&laquo;</a>
-                                                <a href="#" class="rounded disabled">قبل</a>
-                                            {% endif %}
-                                    
+                                        <div class="pagination d-flex justify-content-center mt-5" >
+                                         
+                                            
+                                            
                                             {% for page_num in products.paginator.page_range %}
-                                                {% if products.number == page_num %}
-                                                    <a href="?page={{ page_num }}" class="active rounded">{{ page_num }}</a>
-                                                {% else %}
-                                                    <a href="?page={{ page_num }}" class="rounded">{{ page_num }}</a>
-                                                {% endif %}
-                                            {% endfor %}
-                                    
-                                            {% if products.has_next %}
-                                                <a href="?page={{ products.next_page_number }}" class="rounded">بعد</a>
-                                                <a href="?page={{ products.paginator.num_pages }}" class="rounded">&raquo;</a>
+                                            {% if products.number == page_num %}
+                                                <a href="?page={{ page_num }}" class="active rounded">{{ page_num }}</a>
                                             {% else %}
-                                                <a href="#" class="rounded disabled">بعد</a>
-                                                <a href="#" class="rounded disabled">&raquo;</a>
+                                                <a href="?page={{ page_num }}" class="rounded">{{ page_num }}</a>
                                             {% endif %}
+                                            {% endfor %}
+
+
+                                           
+                                    
+                                           
+                                    
+                                            
+                                            
                                         </div>
                                     
                                         <div class="text-center mt-3">

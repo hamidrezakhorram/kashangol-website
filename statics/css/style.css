@@ -508,3 +508,26 @@
     height: 100%;
     object-fit: cover; 
 }
+
+
+.product-item {
+    width: 100%; /* Make the container fill the column */
+    height: 450px; /* Set a fixed height for the product box */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Hide any overflowing content */
+    border-radius: 10px; /* Optional: consistent border rounding */
+}
+.product-img {
+    height: 250px; /* Set a specific height for the image container */
+    overflow: hidden; /* Ensure no part of the image exceeds the container */
+}
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container while keeping the aspect ratio */
+}
+
+.product-item .p-4 {
+    flex-grow: 1; /* Ensures that content section grows to fill the remaining space */
+}

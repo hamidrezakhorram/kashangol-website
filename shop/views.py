@@ -108,22 +108,31 @@ def search_views(request):
 
 
 def cart_views(request):
-    cart_items = Cartitem.objects.filter(user=request.user)
+    if request.user.is_authenticated:
+        cart_items = Cartitem.objects.filter(user=request.user)
     
-    for item in cart_items:
-       item.total_price = item.product.price * item.quantity
-    total_price = sum(item.product.price * item.quantity for item in cart_items)
-    total_discount = sum(item.product.discount * item.quantity for item in cart_items)
-    final_price = total_price - total_discount
+        for item in cart_items:
+           item.total_price = item.product.price * item.quantity
+        total_price = sum(item.product.price * item.quantity for item in cart_items)
+        total_discount = sum(item.product.discount * item.quantity for item in cart_items)
+        final_price = total_price - total_discount
 
-    context = { 'cart_items': cart_items,
-                'total_price': total_price,
-                'final_price': final_price,
-                'total_discount': total_discount,
+        context = { 'cart_items': cart_items,
+                    'total_price': total_price,
+                    'final_price': final_price,
+                    'total_discount': total_discount,
                 
-    }
+                 }
+    else: 
+       context = { 
+            'cart_items': [],
+            'total_price': 0,
+            'final_price': 0,
+            'total_discount': 0,
+            
+        }
     return render(request, 'shop/cart.html', context)
-
+   
 def add_to_cart_views(request, product_id):
     product = Product.objects.get(id=product_id)
     cart_item , create = Cartitem.objects.get_or_create(product=product,  user=request.user)
